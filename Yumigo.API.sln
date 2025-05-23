@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yumigo.API", "Yumigo.API\Yumigo.API.csproj", "{ABF1A933-C390-4CE2-9138-E42D610BB732}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABF1A933-C390-4CE2-9138-E42D610BB732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF1A933-C390-4CE2-9138-E42D610BB732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF1A933-C390-4CE2-9138-E42D610BB732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF1A933-C390-4CE2-9138-E42D610BB732}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D18673C0-DB6C-4D25-9399-D6CB2788CA2D}
+	EndGlobalSection
+EndGlobal
