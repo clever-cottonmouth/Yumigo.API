@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Yumigo.API.DbContext;
 
@@ -11,9 +12,11 @@ using Yumigo.API.DbContext;
 namespace Yumigo.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250524054201_addmenuitems")]
+    partial class addmenuitems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -258,208 +261,6 @@ namespace Yumigo.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("menuItems");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Category = "Appetizer",
-                            Description = "Toasted bread with garlic butter and herbs",
-                            Image = "garlic_bread.jpg",
-                            Name = "Garlic Bread",
-                            Price = 5.9900000000000002,
-                            SpecialTag = "Vegetarian"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Category = "Appetizer",
-                            Description = "Spicy buffalo wings with blue cheese dip",
-                            Image = "chicken_wings.jpg",
-                            Name = "Chicken Wings",
-                            Price = 12.99,
-                            SpecialTag = "Spicy"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Category = "Salad",
-                            Description = "Crisp romaine with Caesar dressing and croutons",
-                            Image = "caesar_salad.jpg",
-                            Name = "Caesar Salad",
-                            Price = 8.4900000000000002,
-                            SpecialTag = "Vegetarian"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Category = "Main Course",
-                            Description = "Classic pizza with tomato, mozzarella, and basil",
-                            Image = "margherita_pizza.jpg",
-                            Name = "Margherita Pizza",
-                            Price = 14.99,
-                            SpecialTag = "Vegetarian"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Category = "Main Course",
-                            Description = "Fresh salmon with lemon herb sauce",
-                            Image = "grilled_salmon.jpg",
-                            Name = "Grilled Salmon",
-                            Price = 22.989999999999998,
-                            SpecialTag = "Gluten-Free"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Category = "Main Course",
-                            Description = "Juicy beef patty with lettuce, tomato, and cheese",
-                            Image = "beef_burger.jpg",
-                            Name = "Beef Burger",
-                            Price = 13.99,
-                            SpecialTag = ""
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Category = "Main Course",
-                            Description = "Creamy risotto with wild mushrooms",
-                            Image = "mushroom_risotto.jpg",
-                            Name = "Mushroom Risotto",
-                            Price = 16.489999999999998,
-                            SpecialTag = "Vegetarian"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Category = "Side",
-                            Description = "Crispy golden fries with ketchup",
-                            Image = "french_fries.jpg",
-                            Name = "French Fries",
-                            Price = 4.9900000000000002,
-                            SpecialTag = "Vegetarian"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Category = "Side",
-                            Description = "Crispy battered onion rings",
-                            Image = "onion_rings.jpg",
-                            Name = "Onion Rings",
-                            Price = 6.4900000000000002,
-                            SpecialTag = "Vegetarian"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Category = "Dessert",
-                            Description = "Warm chocolate cake with molten center",
-                            Image = "lava_cake.jpg",
-                            Name = "Chocolate Lava Cake",
-                            Price = 7.9900000000000002,
-                            SpecialTag = "Indulgent"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Category = "Dessert",
-                            Description = "Creamy cheesecake with berry compote",
-                            Image = "cheesecake.jpg",
-                            Name = "Cheesecake",
-                            Price = 8.9900000000000002,
-                            SpecialTag = ""
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Category = "Beverage",
-                            Description = "Refreshing mint and lime cocktail",
-                            Image = "mojito.jpg",
-                            Name = "Mojito",
-                            Price = 9.9900000000000002,
-                            SpecialTag = "Alcoholic"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Category = "Beverage",
-                            Description = "Chilled coffee with milk and sugar",
-                            Image = "iced_coffee.jpg",
-                            Name = "Iced Coffee",
-                            Price = 4.4900000000000002,
-                            SpecialTag = ""
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Category = "Main Course",
-                            Description = "Whole wheat wrap with fresh veggies and hummus",
-                            Image = "veggie_wrap.jpg",
-                            Name = "Veggie Wrap",
-                            Price = 10.99,
-                            SpecialTag = "Vegan"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Category = "Appetizer",
-                            Description = "Chilled shrimp with tangy cocktail sauce",
-                            Image = "shrimp_cocktail.jpg",
-                            Name = "Shrimp Cocktail",
-                            Price = 11.99,
-                            SpecialTag = "Gluten-Free"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Category = "Main Course",
-                            Description = "Fettuccine in creamy Alfredo sauce",
-                            Image = "pasta_alfredo.jpg",
-                            Name = "Pasta Alfredo",
-                            Price = 15.49,
-                            SpecialTag = "Vegetarian"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Category = "Salad",
-                            Description = "Feta, olives, and cucumbers in olive oil dressing",
-                            Image = "greek_salad.jpg",
-                            Name = "Greek Salad",
-                            Price = 9.4900000000000002,
-                            SpecialTag = "Vegetarian"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Category = "Main Course",
-                            Description = "Slow-cooked ribs with smoky BBQ sauce",
-                            Image = "bbq_ribs.jpg",
-                            Name = "BBQ Ribs",
-                            Price = 24.989999999999998,
-                            SpecialTag = "Spicy"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            Category = "Beverage",
-                            Description = "Freshly squeezed lemonade with mint",
-                            Image = "lemonade.jpg",
-                            Name = "Lemonade",
-                            Price = 3.9900000000000002,
-                            SpecialTag = "Non-Alcoholic"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            Category = "Dessert",
-                            Description = "Classic Italian dessert with coffee and mascarpone",
-                            Image = "tiramisu.jpg",
-                            Name = "Tiramisu",
-                            Price = 8.4900000000000002,
-                            SpecialTag = ""
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
