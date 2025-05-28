@@ -18,6 +18,8 @@ namespace Yumigo.API.DbContext
         }
 
         public DbSet<MenuItem> menuItems { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<OrderHeader> OrderHeaders { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
