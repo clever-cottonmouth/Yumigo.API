@@ -12,12 +12,12 @@ namespace Yumigo.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderController : ControllerBase
+    public class OrderHeaderController : ControllerBase
     {
         private readonly ApplicationDbContext _db;
         private readonly ApiResponse _response;
 
-        public OrderController(ApplicationDbContext db, ApiResponse response)
+        public OrderHeaderController(ApplicationDbContext db, ApiResponse response)
         {
             _db = db;
             _response = response;

@@ -63,12 +63,14 @@ app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCors(_=>_.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().WithExposedHeaders("*"));
 
 app.MapControllers();
 
 app.Run();
 
 
+#region[Token Generate]
 internal sealed class BearerSecuritySchemeTransformer(IAuthenticationSchemeProvider authenticationSchemeProvider)
     : IOpenApiDocumentTransformer
 {
@@ -110,3 +112,4 @@ internal sealed class BearerSecuritySchemeTransformer(IAuthenticationSchemeProvi
         }
     }
 }
+#endregion

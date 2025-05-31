@@ -24,7 +24,17 @@ namespace Yumigo.API.Controllers
         [HttpGet]
         public IActionResult GetMenuItems()
         {
-            _response.Result = _context.menuItems.ToList();
+            List<MenuItem> menuItems = _context.menuItems.ToList();
+            List<OrderDetail> orderDetailsWithRating = _context.OrderDetails.Where(_=>_.Rating != null).ToList();
+
+            foreach ( var menuItem in menuItems)
+            {
+                var rating = orderDetailsWithRating.Where(_ => _.MenuItemId == menuItem.Id).Select(_ => _.Rating.Value);
+                double avgRating = rating.Any() ? rating.Average() : 0;
+                menuItem.Rating = avgRating;
+            }
+
+            _response.Result = menuItems;
             _response.StatusCode = HttpStatusCode.OK;
             return Ok(_response);
         }
@@ -38,9 +48,19 @@ namespace Yumigo.API.Controllers
                 _response.IsSuccess = false;
                 return BadRequest(_response);
             }
+
             else
             {
                 MenuItem? menuItem = _context.menuItems.FirstOrDefault(_ => _.Id == id);
+                List<OrderDetail> orderDetailsWithRating = _context.OrderDetails.Where(_ => _.Rating != null&& _.MenuItemId==menuItem.Id).ToList();
+
+           
+                    var rating = orderDetailsWithRating.Select(_ => _.Rating.Value);
+                    double avgRating = rating.Any() ? rating.Average() : 0;
+                    menuItem.Rating = avgRating;
+           
+
+
                 _response.Result = menuItem;
                 _response.StatusCode = HttpStatusCode.OK;
                 return Ok(_response);
