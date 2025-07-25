@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using Yumigo.API.DbContext;
-using Yumigo.API.Migrations;
 using Yumigo.API.Models;
 using Yumigo.API.Models.DTO;
 using Yumigo.API.Utility;

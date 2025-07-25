@@ -24,7 +24,7 @@ namespace Yumigo.API.Controllers
         [HttpGet]
         public IActionResult GetMenuItems()
         {
-            List<MenuItem> menuItems = _context.menuItems.ToList();
+            List<MenuItem> menuItems = _context.MenuItems.ToList();
             List<OrderDetail> orderDetailsWithRating = _context.OrderDetails.Where(_=>_.Rating != null).ToList();
 
             foreach ( var menuItem in menuItems)
@@ -51,7 +51,7 @@ namespace Yumigo.API.Controllers
 
             else
             {
-                MenuItem? menuItem = _context.menuItems.FirstOrDefault(_ => _.Id == id);
+                MenuItem? menuItem = _context.MenuItems.FirstOrDefault(_ => _.Id == id);
                 List<OrderDetail> orderDetailsWithRating = _context.OrderDetails.Where(_ => _.Rating != null&& _.MenuItemId==menuItem.Id).ToList();
 
            
@@ -106,7 +106,7 @@ namespace Yumigo.API.Controllers
                         SpecialTag = menuItemCreateDTO.SpecialTag,
                         Image = "images/" + menuItemCreateDTO.File.FileName,
                     };
-                    _context.menuItems.Add(menuItem);
+                    _context.MenuItems.Add(menuItem);
                     await _context.SaveChangesAsync();
 
                     _response.Result = menuItemCreateDTO;
@@ -142,7 +142,7 @@ namespace Yumigo.API.Controllers
                         return BadRequest(_response);
                     }
 
-                    MenuItem menuItemFromDb = await _context.menuItems.FirstOrDefaultAsync(_ => _.Id == id);
+                    MenuItem menuItemFromDb = await _context.MenuItems.FirstOrDefaultAsync(_ => _.Id == id);
 
                     if (menuItemFromDb == null)
                     {
@@ -187,7 +187,7 @@ namespace Yumigo.API.Controllers
                         
                     }
 
-                    _context.menuItems.Update(menuItemFromDb);
+                    _context.MenuItems.Update(menuItemFromDb);
                     await _context.SaveChangesAsync();
 
                     _response.StatusCode = HttpStatusCode.NoContent;
@@ -225,7 +225,7 @@ namespace Yumigo.API.Controllers
                         return BadRequest(_response);
                     }
 
-                    MenuItem? menuItemFromDb = await _context.menuItems.FirstOrDefaultAsync(_ => _.Id == id);
+                    MenuItem? menuItemFromDb = await _context.MenuItems.FirstOrDefaultAsync(_ => _.Id == id);
 
                     if (menuItemFromDb == null)
                     {
@@ -240,7 +240,7 @@ namespace Yumigo.API.Controllers
                         System.IO.File.Delete(filePath_OldFile);
                     }
 
-                    _context.menuItems.Remove(menuItemFromDb);
+                    _context.MenuItems.Remove(menuItemFromDb);
                     await _context.SaveChangesAsync();
 
                     _response.StatusCode = HttpStatusCode.NoContent;
