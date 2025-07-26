@@ -44,9 +44,9 @@ builder.Services.AddAuthentication(_ =>
 
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi(options =>
+builder.Services.AddSwaggerGen(_ =>
 {
-    options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
+    _.SwaggerDoc("v1" ,new OpenApiInfo { Title = "Yumigo", Version = "v1" });
 });
 
 var app = builder.Build();
@@ -54,8 +54,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
-    app.MapScalarApiReference();
+    app.UseSwagger();
+    app.UseSwaggerUI(_=>_.SwaggerEndpoint("/swagger/v1/swagger.json","Yumigo"));
 }
 
 app.UseDefaultFiles();
